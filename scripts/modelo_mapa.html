@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITULO__</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap">
+<style>
+ html,body,#mapa{height:100%;margin:0;font:14px/1.4 Archivo,system-ui,sans-serif;color:#1d1f22;
+   font-variant-numeric:tabular-nums}
+ .painel,.legenda{background:#f4f5f2f5;padding:10px;border-radius:6px;border:1px solid #d9dcd6}
+ .painel{max-width:250px}
+ .painel h4{margin:10px 2px 4px;font-size:13px;font-weight:600;color:#5d626a}
+ .painel h4:first-child{margin-top:0}
+ .painel label{display:block;cursor:pointer;padding:4px 8px;border-radius:4px;position:relative}
+ .painel label:hover{background:#e6e8e3}
+ .painel input{position:absolute;opacity:0;pointer-events:none}
+ .painel label:has(input:checked){background:#2a2d31;color:#fff}
+ .painel label:has(input:focus-visible){outline:3px solid #1d1f22;outline-offset:1px}
+ .legenda{min-width:280px;max-width:340px}
+ .legenda .t{font-weight:600;margin-bottom:6px}
+ .legenda .barra{display:flex;gap:2px;height:12px}
+ .legenda .barra span{flex:1}
+ .legenda .rot{display:flex;justify-content:space-between;gap:10px;color:#5d626a;font-size:12px;margin-top:3px}
+ .legenda .rot span{white-space:nowrap}
+ .legenda .cat{display:flex;align-items:center;gap:6px;margin:3px 0}
+ .legenda .cat i{width:11px;height:11px;border-radius:2px;display:inline-block}
+ .leaflet-tooltip{font:13px/1.4 Archivo,system-ui,sans-serif;max-width:340px;white-space:normal;
+   border-radius:4px;border-color:#d9dcd6}
+ .leaflet-container{background:#e9ebe6}
+</style></head><body><div id="mapa"></div>
+<script>
+const D = __DADOS__;
+const NEUTRO = "#e4e5e1", SEM = "#cfd2cc";
+const CORTES = [-40, -25, -15, -7, -2, 2, 7, 15, 25, 40];
+const fmt = (x, c = 1) => x == null ? "–" : x.toLocaleString("pt-BR", {minimumFractionDigits: c, maximumFractionDigits: c});
+const mapa = L.map("mapa", {preferCanvas: true, zoomSnap: 0.25});
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  {attribution: "© OpenStreetMap", opacity: 0.45, maxZoom: 18}).addTo(mapa);
+
+let camada = D.camadas.find(c => c.id === D.inicial) || D.camadas[0];
+let visao = "unidade";
+
+// índices dos campos em cada vetor de valores
+const I = {a: 0, b: 1, m: 2, w: 3, wp: 4, comp: 5, abs: 6, bn: 7};
+const val = (v, d) => (v && v[d]) || null;
+
+function corMargem(m, esc, fator = 1) {
+  if (m == null || isNaN(m)) return SEM;
+  const cores = [...esc.b, NEUTRO, ...esc.a];
+  let i = 0;
+  while (i < CORTES.length && m / fator > CORTES[i]) i++;
+  return cores[i];
+}
+function corSeq(x, esc) {
+  if (x == null) return SEM;
+  const t = Math.max(0, Math.min(0.999, (x - esc.min) / (esc.max - esc.min)));
+  return esc.cores[Math.floor(t * esc.cores.length)];
+}
+function valor(v) {  // número usado para colorir
+  const c = camada;
+  if (c.tipo === "margem") { const x = val(v, c.d); return x && x[I.m]; }
+  if (c.tipo === "virada") { const x1 = val(v, c.d1), x2 = val(v, c.d2); return x1 && x2 ? x2[I.m] - x1[I.m] : null; }
+  if (c.tipo === "vencedor") { const x = val(v, c.d); return x && x[I.w]; }
+  if (c.tipo === "abstencao") { const x = val(v, c.d); return x && x[I.abs]; }
+}
+function cor(v) {
+  const c = camada, x = valor(v);
+  if (c.tipo === "margem") return corMargem(x, D.escalas[c.esc]);
+  if (c.tipo === "virada") return corMargem(x, D.escalas[c.esc], 0.5);
+  if (c.tipo === "vencedor") return x == null ? SEM : (c.cores[x] || "#b5b4ae");
+  if (c.tipo === "abstencao") return corSeq(x, D.escalas.abst);
+}
+function linhaDisputa(d, x) {
+  const p = D.polos[d];
+  let s = `<b>${p[0]}</b>: ${fmt(x[I.a])}%<br><b>${p[1]}</b>: ${fmt(x[I.b])}%`;
+  if (d.endsWith("1")) s += `<br>Mais votado: ${D.nomes[d][x[I.w]] || x[I.w]} (${fmt(x[I.wp])}%)`;
+  return s + `<br>Comparecimento: ${fmt(x[I.comp], 0)} · abstenção ${fmt(x[I.abs])}%` +
+             `<br>Brancos+nulos: ${fmt(x[I.bn])}%`;
+}
+function info(nome, v) {
+  const c = camada;
+  let s = `<b style="font-size:13px">${nome}</b><br>`;
+  if (!v) return s + "sem dados";
+  if (c.tipo === "virada") {
+    const x1 = val(v, c.d1), x2 = val(v, c.d2);
+    if (!x1 || !x2) return s + "sem dados";
+    const dv = x2[I.m] - x1[I.m], p = D.polos[c.d2];
+    return s + `Margem 1º turno: ${fmt(x1[I.m])} p.p.<br>Margem 2º turno: ${fmt(x2[I.m])} p.p.` +
+      `<br><b>Variação: ${dv > 0 ? "+" : ""}${fmt(dv)} p.p.</b> (a favor de ${dv > 0 ? p[0] : p[1]})`;
+  }
+  const x = val(v, c.d);
+  return s + (x ? linhaDisputa(c.d, x) : "sem dados");
+}
+
+// --- camadas geográficas ---
+const geo = L.geoJSON(D.geo, {
+  style: f => ({fillColor: cor(D.valores.unidade[f.properties.id]), fillOpacity: 0.85,
+                color: "#ffffff", weight: D.borda || 0.8}),
+  onEachFeature: (f, l) => {
+    l.bindTooltip(() => info(f.properties.nome, D.valores.unidade[f.properties.id]), {sticky: true});
+    l.on("mouseover", () => l.setStyle({weight: 2.5, color: "#1d1f22"}));
+    l.on("mouseout", () => l.setStyle({weight: D.borda || 0.8, color: "#ffffff"}));
+  }
+});
+const contorno = L.geoJSON(D.geo, {style: {fill: false, color: "#8a8985", weight: 0.6}, interactive: false});
+const pontos = L.layerGroup(D.pontos.map(p => {
+  const [lat, lon, id, nome, onde] = p;
+  const v = D.valores.local[id];
+  const comp = v ? Math.max(...Object.values(v).map(x => x[I.comp])) : 0;
+  const m = L.circleMarker([lat, lon], {radius: Math.max(2.5, Math.sqrt(comp) / D.raio),
+    color: "#ffffff", weight: 0.6, fillOpacity: 0.9});
+  m._v = v;
+  m.bindTooltip(() => info(`${nome}<br><span style="font-weight:400;color:#52514e">${onde}</span>`, m._v),
+                {sticky: true});
+  return m;
+}));
+
+function redesenhar() {
+  if (visao === "unidade") {
+    geo.setStyle(f => ({fillColor: cor(D.valores.unidade[f.properties.id])}));
+  } else {
+    pontos.eachLayer(m => m.setStyle({fillColor: cor(m._v)}));
+  }
+  legenda.update();
+}
+function trocarVisao(v) {
+  visao = v;
+  if (v === "unidade") { mapa.removeLayer(pontos); mapa.removeLayer(contorno); geo.addTo(mapa); }
+  else { mapa.removeLayer(geo); contorno.addTo(mapa); pontos.addTo(mapa); }
+  redesenhar();
+}
+
+// --- controles ---
+const painel = L.control({position: "topright"});
+painel.onAdd = () => {
+  const div = L.DomUtil.create("div", "painel");
+  let h = "<h4>Disputa</h4>";
+  for (const c of D.camadas)
+    h += `<label><input type="radio" name="c" value="${c.id}" ${c === camada ? "checked" : ""}> ${c.rotulo}</label>`;
+  if (D.pontos.length) {
+    h += "<h4>Recorte</h4>";
+    h += `<label><input type="radio" name="v" value="unidade" checked> ${D.nome_unidade}</label>`;
+    h += `<label><input type="radio" name="v" value="local"> Locais de votação</label>`;
+  }
+  div.innerHTML = h;
+  L.DomEvent.disableClickPropagation(div);
+  L.DomEvent.disableScrollPropagation(div);
+  div.addEventListener("change", e => {
+    if (e.target.name === "c") { camada = D.camadas.find(c => c.id === e.target.value); redesenhar(); }
+    if (e.target.name === "v") trocarVisao(e.target.value);
+  });
+  return div;
+};
+painel.addTo(mapa);
+
+const legenda = L.control({position: "bottomleft"});
+legenda.onAdd = () => (legenda._div = L.DomUtil.create("div", "legenda"));
+legenda.update = () => {
+  const c = camada;
+  let h = "";
+  if (c.tipo === "margem" || c.tipo === "virada") {
+    const e = D.escalas[c.esc], k = c.tipo === "virada" ? 0.5 : 1, p = D.polos[c.d || c.d2];
+    h = `<div class="t">${c.tipo === "virada" ? "Variação da margem entre turnos (p.p.)" : "Margem nos votos válidos (p.p.)"}</div>`;
+    h += `<div class="barra">${[...e.b, NEUTRO, ...e.a].map(x => `<span style="background:${x}"></span>`).join("")}</div>`;
+    h += `<div class="rot"><span>${p[1]} +${40 * k}</span><span>0</span><span>${p[0]} +${40 * k}</span></div>`;
+  } else if (c.tipo === "vencedor") {
+    h = `<div class="t">Mais votado</div>` + Object.entries(c.legenda)
+      .map(([n, nome]) => `<div class="cat"><i style="background:${c.cores[n] || "#b5b4ae"}"></i>${nome}</div>`).join("");
+  } else {
+    const e = D.escalas.abst;
+    h = `<div class="t">Abstenção (%)</div><div class="barra">${e.cores.map(x => `<span style="background:${x}"></span>`).join("")}</div>`;
+    h += `<div class="rot"><span>${fmt(e.min, 0)}%</span><span>${fmt(e.max, 0)}%</span></div>`;
+  }
+  if (visao === "local") h += `<div class="rot" style="margin-top:6px">Círculo ∝ comparecimento</div>`;
+  legenda._div.innerHTML = h;
+};
+legenda.addTo(mapa);
+
+geo.addTo(mapa);
+mapa.fitBounds(geo.getBounds(), {padding: [10, 10]});
+redesenhar();
+</script></body></html>

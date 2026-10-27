@@ -1,0 +1,10 @@
+# ambiente
+.venv/
+__pycache__/
+*.pyc
+.claude/
+
+# downloads do TSE/IBGE (~2,7 GB) — regeneráveis com `make dados`
+dados_brutos/
+*.part
+*.tmp

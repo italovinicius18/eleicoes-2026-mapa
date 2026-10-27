@@ -1,0 +1,205 @@
+uf,cargo,numero,nome,partido,situacao
+RN,Governador,29,Henrique Lyra,PCO,NÃO ELEITO
+SE,Governador,10,Valmir De Francisquinho,REPUBLICANOS,NÃO ELEITO
+DF,Governador,80,Professora Samara Mineiro,UP,NÃO ELEITO
+PB,Governador,27,Pedro Coutinho,DC,NÃO ELEITO
+SE,Governador,45,Emanuel Cacho,PSDB,NÃO ELEITO
+AM,Governador,16,Gilberto Vasconcelos,PSTU,NÃO ELEITO
+MA,Governador,14,André Luis,MISSÃO,NÃO ELEITO
+RO,Governador,15,Pedro Abib,MDB,NÃO ELEITO
+PI,Governador,50,Professor Gisvaldo,PSOL,NÃO ELEITO
+PA,Governador,50,Araceli,PSOL,NÃO ELEITO
+PA,Governador,15,Hana Ghassan,MDB,NÃO ELEITO
+TO,Governador,50,Prof Witer Naves,PSOL,NÃO ELEITO
+AC,Governador,40,Thor Dantas,PSB,NÃO ELEITO
+MG,Governador,22,Flávio Roscoe,PL,NÃO ELEITO
+BA,Governador,13,Jerônimo Rodrigues,PT,ELEITO
+RN,Governador,36,Rodrigo De Bolsonaro,AGIR,NÃO ELEITO
+RJ,Governador,30,André Marinho,NOVO,NÃO ELEITO
+SP,Governador,21,Carlos Machado,PCB,NÃO ELEITO
+SC,Governador,14,Marcelo Brigadeiro,MISSÃO,NÃO ELEITO
+MA,Governador,28,Roberto Rocha,PRTB,NÃO ELEITO
+MT,Governador,14,Rafaell Milas,MISSÃO,NÃO ELEITO
+MT,Governador,10,Otaviano Pivetta,REPUBLICANOS,ELEITO
+PI,Governador,30,Elizeu Aguiar,NOVO,NÃO ELEITO
+MG,Governador,29,Henrique Áreas,PCO,NÃO ELEITO
+DF,Governador,40,Cappelli,PSB,NÃO ELEITO
+DF,Governador,11,Celina Leão,PP,2º TURNO
+MS,Governador,13,Fábio Trad,PT,NÃO ELEITO
+SE,Governador,22,Ricardo Marques,PL,NÃO ELEITO
+PI,Governador,11,Joel Rodrigues,PP,NÃO ELEITO
+MG,Governador,14,Ben Mendes,MISSÃO,NÃO ELEITO
+BA,Governador,80,Aroldo Felix,UP,NÃO ELEITO
+AP,Governador,16,Carlos Cley,PSTU,NÃO ELEITO
+SP,Governador,16,Vera Lúcia,PSTU,NÃO ELEITO
+SC,Governador,22,Jorginho Mello,PL,ELEITO
+SC,Governador,25,Ralf Zimmer,PRD,NÃO ELEITO
+RS,Governador,16,Rejane De Oliveira,PSTU,NÃO ELEITO
+ES,Governador,14,Breno Barcelos,MISSÃO,NÃO ELEITO
+SE,Governador,55,Fábio,PSD,ELEITO
+CE,Governador,16,Zé Batista,PSTU,NÃO ELEITO
+CE,Governador,30,Vera Lúcia,NOVO,NÃO ELEITO
+CE,Governador,35,Danilo Soares,DEMOCRATA,NÃO ELEITO
+MT,Governador,22,Wellington Fagundes,PL,NÃO ELEITO
+MT,Governador,33,Mauricio Coelho,MOBILIZA,NÃO ELEITO
+MT,Governador,36,Sargento Laudicério,AGIR,NÃO ELEITO
+MT,Governador,55,Doutora Natasha,PSD,NÃO ELEITO
+DF,Governador,16,Professor Robson,PSTU,NÃO ELEITO
+SP,Governador,29,Izadora Dias,PCO,NÃO ELEITO
+TO,Governador,35,Siqueira Campos Jr,DEMOCRATA,NÃO ELEITO
+MA,Governador,29,Dimas Cassimiro,PCO,NÃO ELEITO
+MA,Governador,21,Reginaldo Lima,PCB,NÃO ELEITO
+AL,Governador,45,Jhc,PSDB,ELEITO
+PA,Governador,16,Well Macedo,PSTU,NÃO ELEITO
+AC,Governador,21,Eudo Raffael,PCB,NÃO ELEITO
+AC,Governador,11,Mailza Assis,PP,2º TURNO
+BR,Presidente,35,Veterinário Wilson Grassi,DEMOCRATA,NÃO ELEITO
+GO,Governador,13,Luis Cesar Bueno,PT,NÃO ELEITO
+RJ,Governador,50,William Siri,PSOL,NÃO ELEITO
+SP,Governador,80,Vivian Mendes,UP,NÃO ELEITO
+SC,Governador,29,Bruno Pedreiro Do Pco,PCO,NÃO ELEITO
+SC,Governador,55,João Rodrigues,PSD,NÃO ELEITO
+ES,Governador,10,Lorenzo Pazolini,REPUBLICANOS,2º TURNO
+RR,Governador,50,Rosi Aires,PSOL,NÃO ELEITO
+SE,Governador,27,Taty  Cristina De Jesus,DC,NÃO ELEITO
+CE,Governador,29,Ieri Braga,PCO,NÃO ELEITO
+CE,Governador,45,Ciro Gomes,PSDB,NÃO ELEITO
+PE,Governador,40,João Campos,PSB,NÃO ELEITO
+PE,Governador,55,Raquel Lyra,PSD,ELEITO
+RS,Governador,29,Cesar Pontes,PCO,NÃO ELEITO
+PR,Governador,29,Adriano Funileiro,PCO,NÃO ELEITO
+PI,Governador,29,Lourdes Melo,PCO,NÃO ELEITO
+PI,Governador,27,Professor Jurity,DC,NÃO ELEITO
+DF,Governador,29,Expedito Mendonça,PCO,NÃO ELEITO
+MS,Governador,30,João Henrique Catan,NOVO,NÃO ELEITO
+MS,Governador,27,Economista Renato Gomes,DC,NÃO ELEITO
+MA,Governador,15,Orleans Brandão,MDB,NÃO ELEITO
+AL,Governador,15,Renan Filho,MDB,NÃO ELEITO
+RO,Governador,55,Adailton Furia,PSD,NÃO ELEITO
+AC,Governador,10,Alan Rick,REPUBLICANOS,2º TURNO
+MG,Governador,12,Alexandre Kalil,PDT,NÃO ELEITO
+MG,Governador,80,Indira Xavier,UP,NÃO ELEITO
+MG,Governador,15,Gabriel,MDB,NÃO ELEITO
+MG,Governador,13,Patrus Ananias,PT,NÃO ELEITO
+BR,Presidente,16,Hertz Dias,PSTU,NÃO ELEITO
+BA,Governador,27,Ariel Capistrano,DC,NÃO ELEITO
+RN,Governador,22,Álvaro Dias,PL,NÃO ELEITO
+RN,Governador,44,Allyson,UNIÃO,2º TURNO
+PB,Governador,80,Yuri Ezequiel,UP,NÃO ELEITO
+RJ,Governador,80,Juliete,UP,NÃO ELEITO
+RJ,Governador,29,Luan Monteiro,PCO,NÃO ELEITO
+SC,Governador,16,Professor Marcus Sodré,PSTU,NÃO ELEITO
+RS,Governador,12,Juliana Brizola,PDT,NÃO ELEITO
+ES,Governador,15,Ricardo Ferraço,MDB,2º TURNO
+PR,Governador,14,Luiz França,MISSÃO,NÃO ELEITO
+PE,Governador,50,Ivan Moraes,PSOL,NÃO ELEITO
+PE,Governador,29,Victor Assis,PCO,NÃO ELEITO
+PE,Governador,80,Professora Camila,UP,NÃO ELEITO
+DF,Governador,36,Elisson,AGIR,NÃO ELEITO
+PB,Governador,15,Cícero Lucena,MDB,NÃO ELEITO
+DF,Governador,45,Paula Belmonte,PSDB,NÃO ELEITO
+MS,Governador,29,Daniel Lemes,PCO,NÃO ELEITO
+MS,Governador,50,Lucien Rezende,PSOL,NÃO ELEITO
+RN,Governador,50,Professor Roberio Paulino,PSOL,NÃO ELEITO
+AM,Governador,44,Roberto Cidade,UNIÃO,NÃO ELEITO
+MA,Governador,13,Felipe Camarão,PT,NÃO ELEITO
+PA,Governador,20,Dr. Daniel,PODE,ELEITO
+TO,Governador,55,Laurez Moreira,PSD,NÃO ELEITO
+TO,Governador,44,Professora Dorinha,UNIÃO,2º TURNO
+TO,Governador,30,Ataides De Oliveira,NOVO,NÃO ELEITO
+BR,Presidente,29,Rui Costa Pimenta,PCO,NÃO ELEITO
+BR,Presidente,13,Lula,PT,2º TURNO
+BA,Governador,44,Acm Neto,UNIÃO,NÃO ELEITO
+RN,Governador,80,Arinalda Do Mlb,UP,NÃO ELEITO
+RN,Governador,27,Godeiro Linharess,DC,NÃO ELEITO
+RN,Governador,16,Dário Barbosa,PSTU,NÃO ELEITO
+GO,Governador,29,Danilo Da Silva,PCO,NÃO ELEITO
+RJ,Governador,14,Coronel Busnello,MISSÃO,NÃO ELEITO
+SP,Governador,10,Tarcísio,REPUBLICANOS,ELEITO
+RS,Governador,80,Priscila Voigt,UP,NÃO ELEITO
+RR,Governador,22,Arthur Henrique,PL,ELEITO
+PR,Governador,80,Tayná Miessa,UP,NÃO ELEITO
+CE,Governador,80,Serley Leal,UP,NÃO ELEITO
+SE,Governador,50,Dr. Helton,PSOL,NÃO ELEITO
+PI,Governador,35,Ravenna Da Inclusão,DEMOCRATA,NÃO ELEITO
+RJ,Governador,55,Eduardo Paes,PSD,NÃO ELEITO
+RJ,Governador,10,Garotinho,REPUBLICANOS,NÃO ELEITO
+MS,Governador,25,Delcidio Amaral,PRD,NÃO ELEITO
+AM,Governador,70,David Almeida,AVANTE,NÃO ELEITO
+AM,Governador,33,Cabo Daciolo,MOBILIZA,NÃO ELEITO
+AL,Governador,35,Márcio Jambo,DEMOCRATA,NÃO ELEITO
+RO,Governador,13,Expedito Netto,PT,NÃO ELEITO
+RO,Governador,44,Hildon Chaves,UNIÃO,NÃO ELEITO
+RO,Governador,22,Marcos Rogério,PL,ELEITO
+PI,Governador,13,Rafael Fonteles,PT,ELEITO
+PI,Governador,80,Santiago Belizário,UP,NÃO ELEITO
+PI,Governador,45,Dra. Lúcia Santos,PSDB,NÃO ELEITO
+TO,Governador,45,Vicentinho Júnior,PSDB,2º TURNO
+AC,Governador,45,Tião Bocalom,PSDB,NÃO ELEITO
+BR,Presidente,21,Edmilson Costa,PCB,NÃO ELEITO
+BR,Presidente,27,Clariana Barao,DC,NÃO ELEITO
+BR,Presidente,30,Zema,NOVO,NÃO ELEITO
+BR,Presidente,80,Samara,UP,NÃO ELEITO
+BA,Governador,29,Maria Bona,PCO,NÃO ELEITO
+GO,Governador,45,Marconi Perillo,PSDB,NÃO ELEITO
+GO,Governador,80,Luciana Amorim,UP,NÃO ELEITO
+RJ,Governador,16,Cyro Garcia,PSTU,NÃO ELEITO
+AP,Governador,44,Clécio,UNIÃO,NÃO ELEITO
+AP,Governador,27,Delegado Marcos,DC,NÃO ELEITO
+ES,Governador,13,Helder Salomão,PT,NÃO ELEITO
+RR,Governador,10,Soldado Sampaio,REPUBLICANOS,NÃO ELEITO
+PR,Governador,22,Sergio Moro,PL,ELEITO
+PR,Governador,33,Doutor Alexandre Salomão,MOBILIZA,NÃO ELEITO
+PE,Governador,14,Renan,MISSÃO,NÃO ELEITO
+PI,Governador,16,Geraldo Carvalho,PSTU,NÃO ELEITO
+PA,Governador,35,Ruth Reis,DEMOCRATA,NÃO ELEITO
+RR,Governador,29,Clébio Genuíno,PCO,NÃO ELEITO
+DF,Governador,55,Arruda,PSD,NÃO ELEITO
+AP,Governador,55,Dr. Furlan,PSD,ELEITO
+DF,Governador,13,Leandro Grass,PT,2º TURNO
+MS,Governador,11,Eduardo Riedel,PP,ELEITO
+MS,Governador,36,Jeferson Bezerra,AGIR,NÃO ELEITO
+BR,Presidente,28,Leonardo Avalanche,PRTB,NÃO ELEITO
+AM,Governador,55,Omar Aziz,PSD,2º TURNO
+AM,Governador,22,Professora Maria Do Carmo,PL,2º TURNO
+MA,Governador,55,Eduardo Braide,PSD,ELEITO
+AC,Governador,36,Dr.Luisinho,AGIR,NÃO ELEITO
+MG,Governador,55,Mateus Simões,PSD,NÃO ELEITO
+MG,Governador,10,Cleitinho Azevedo,REPUBLICANOS,ELEITO
+MG,Governador,21,Professor Túlio Lopes,PCB,NÃO ELEITO
+BR,Presidente,55,Ronaldo Caiado,PSD,NÃO ELEITO
+BR,Presidente,14,Renan Santos,MISSÃO,NÃO ELEITO
+BA,Governador,50,Ronaldo Mansur,PSOL,NÃO ELEITO
+RN,Governador,13,Cadu De Lula,PT,2º TURNO
+GO,Governador,22,Wilder Morais,PL,NÃO ELEITO
+PB,Governador,11,Lucas Ribeiro,PP,ELEITO
+SC,Governador,40,Gelson Merísio,PSB,NÃO ELEITO
+PE,Governador,16,Guilherme Fonseca,PSTU,NÃO ELEITO
+DF,Governador,28,Rico Pinheiro,PRTB,NÃO ELEITO
+DF,Governador,30,Kiko Caputo,NOVO,NÃO ELEITO
+AM,Governador,18,Isael Munduruku,REDE,NÃO ELEITO
+MA,Governador,16,Saulo Arcangeli,PSTU,NÃO ELEITO
+AL,Governador,80,Lenilda Luna,UP,NÃO ELEITO
+RO,Governador,40,Samuel Costa,PSB,NÃO ELEITO
+PA,Governador,80,Gal Leite,UP,NÃO ELEITO
+TO,Governador,27,Du Pereira,DC,NÃO ELEITO
+MG,Governador,16,Rafael Duda,PSTU,NÃO ELEITO
+BR,Presidente,70,Escritor Augusto Cury,AVANTE,NÃO ELEITO
+BR,Presidente,22,Flavio Bolsonaro,PL,2º TURNO
+GO,Governador,15,Daniel Vilela,MDB,ELEITO
+PB,Governador,22,Efraim Filho,PL,NÃO ELEITO
+PB,Governador,29,Camilo Duarte,PCO,NÃO ELEITO
+RJ,Governador,22,Douglas Ruas,PL,ELEITO
+AP,Governador,29,Jairo Palheta,PCO,NÃO ELEITO
+SP,Governador,13,Fernando Haddad,PT,NÃO ELEITO
+SC,Governador,80,Laís Chaud,UP,NÃO ELEITO
+RS,Governador,45,Marcelo Maranata,PSDB,NÃO ELEITO
+RS,Governador,22,Zucco,PL,ELEITO
+RS,Governador,15,Gabriel Souza,MDB,NÃO ELEITO
+ES,Governador,80,Rafael Demuner,UP,NÃO ELEITO
+RR,Governador,77,Farah Mesquita,SOLIDARIEDADE,NÃO ELEITO
+PR,Governador,12,Requião Filho,PDT,NÃO ELEITO
+PR,Governador,55,Sandro Alex,PSD,NÃO ELEITO
+PR,Governador,16,Samuel De Mattos,PSTU,NÃO ELEITO
+CE,Governador,13,Elmano De Freitas,PT,ELEITO
+CE,Governador,14,Delegado Huggo,MISSÃO,NÃO ELEITO
