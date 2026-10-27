@@ -8,3 +8,6 @@ __pycache__/
 dados_brutos/
 *.part
 *.tmp
+
+# Cloudflare (wrangler)
+.wrangler/
