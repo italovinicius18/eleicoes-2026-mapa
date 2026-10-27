@@ -6,13 +6,16 @@ Administrativa no DF) e por local de votação.
 
 ![Página do Brasil: resultado do 1º e do 2º turno e mapa por município](.github/capa.jpg)
 
+**Site:** https://eleicoes-2026-mapa.pages.dev
+
 O site é estático e fica em [`docs/`](docs/). Para ver localmente:
 
 ```bash
 make servir          # ou: cd docs && python3 -m http.server 8000
 ```
 
-e abra http://localhost:8000.
+e abra http://localhost:8000. Para publicar uma nova versão no Cloudflare Pages (projeto
+`eleicoes-2026-mapa`), faça login uma vez com `npx wrangler login` e rode `make publicar`.
 
 ## O que tem no site
 
@@ -32,7 +35,7 @@ colocado) e laranja para o 2º colocado.
 ## Estrutura
 
 ```
-docs/                  site gerado (GitHub Pages)
+docs/                  site gerado (publicado na Cloudflare)
 dados/
   geo/                 malhas do IBGE, RAs do DF e de-para de municípios TSE -> IBGE
   resumo/              indicadores por estado, município e local de votação (saída de preparar_dados.py)

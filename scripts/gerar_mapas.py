@@ -1,11 +1,12 @@
 """Gera os mapas interativos e os painéis da análise geográfica (Brasil + 27 UFs).
 
-Saídas em docs/ (publicado pelo GitHub Pages):
+Saídas em docs/ (publicado na Cloudflare com `make publicar`):
   index.html, mapa.html            - visão nacional (Presidente por município) e tabela das UFs
   <UF>/index.html, <UF>/mapa.html  - painel e mapa de cada UF (municípios ou RAs no DF + locais)
 O mapa usa scripts/modelo_mapa.html (Leaflet): uma geometria só, recolorida pelo seletor de disputa.
 """
 import html
+import shutil
 import json
 import sys
 from pathlib import Path
@@ -441,6 +442,7 @@ document.querySelectorAll('.chave').forEach(ch => ch.addEventListener('click', e
 def pagina(titulo_pag, corpo):
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(titulo_pag)}</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{FONTE_URL}">
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script><style>{CSS}</style></head>
 <body><main>{corpo}{FONTES}</main>{TECLADO_JS}</body></html>"""
@@ -721,6 +723,7 @@ def main():
     ufs_2t = set(uf_tab[(uf_tab.cargo == "Presidente") & (uf_tab.turno == 2)].uf)
     mapa_brasil(pd.read_csv(RESUMO / "municipios_br.csv"), completo=len(ufs_2t) == len(UFS))
     painel_brasil(uf_tab, pd.read_csv(RESUMO / "total.csv"))
+    shutil.copy(Path(__file__).parent / "favicon.svg", SAIDA / "favicon.svg")
     print("ok ->", SAIDA)
 
 

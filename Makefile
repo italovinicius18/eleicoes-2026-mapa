@@ -1,6 +1,6 @@
 PY ?= .venv/bin/python
 
-.PHONY: all ambiente dados resumo site servir
+.PHONY: all ambiente dados resumo site servir publicar
 
 ## Pipeline completo: baixa tudo e gera o site (o 2º turno leva horas: ~517 mil boletins de urna)
 all: dados resumo site
@@ -24,3 +24,7 @@ site:
 
 servir:
 	cd docs && python3 -m http.server 8000
+
+## Publica docs/ em https://eleicoes-2026-mapa.pages.dev (Cloudflare Pages; requer `npx wrangler login`)
+publicar:
+	npx --yes wrangler@latest pages deploy docs --project-name eleicoes-2026-mapa --branch main
