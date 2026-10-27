@@ -93,3 +93,8 @@ Os downloads podem ser interrompidos e retomados: rodar o mesmo comando de novo 
 - Municípios e RAs pequenos têm percentuais extremos; os destaques em texto priorizam áreas com 50 mil
   eleitores ou mais (10 mil no DF).
 - Os votos do exterior entram apenas no total nacional de Presidente.
+
+## Licença
+
+O código está sob a [licença MIT](LICENSE). Os dados de origem mantêm as licenças de suas fontes (TSE,
+IBGE, IDE-DF) e devem ser citados conforme elas.
